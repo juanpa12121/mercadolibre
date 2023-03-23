@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         features = "src/test/resources/features/show_subcategories.feature",
-        glue = "co.com.tcs.certification.stepdefinitions",
+        glue = "co.com.tcs.certification.mercadolibre.stepdefinitions",
         snippets = SnippetType.CAMELCASE
 //      ,tags = "@successScenario"
 )
