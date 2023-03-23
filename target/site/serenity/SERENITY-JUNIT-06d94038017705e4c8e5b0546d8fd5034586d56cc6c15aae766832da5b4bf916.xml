@@ -1,4 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="1" failures="0" name="Show subcategories in the category list" skipped="0" tests="1" time="0.36" timestamp="2023-03-23 02:48:37"><testcase name="The subcategories are present"><error type="java.lang.NullPointerException"/><system-err>null&#13;
-co.com.tcs.certification.mercadolibre.stepdefinitions.ShowSubcategoriesStepDefinitions.theUserIsOnMercadoLibrePage(ShowSubcategoriesStepDefinitions.java:15)&#13;
-✽.The user is on Mercado Libre page(src/test/resources/features/show_subcategories.feature:8)&#13;
-</system-err></testcase></testsuite>
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Show subcategories in the category list" skipped="0" tests="1" time="7.19" timestamp="2023-03-23 03:33:56"><testcase name="The subcategories are present"/></testsuite>
