@@ -1,5 +1,6 @@
 package co.com.tcs.certification.mercadolibre.stepdefinitions;
 
+import co.com.tcs.certification.mercadolibre.tasks.SelectCategory;
 import co.com.tcs.certification.mercadolibre.userinterfaces.MercadoLibrePage;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -28,6 +29,7 @@ public class ShowSubcategoriesStepDefinitions {
 
     @When("^The user clicks on the category (.*)$")
     public void theUserClicksOnTheCategory(String category) {
+        OnStage.theActorInTheSpotlight().attemptsTo(SelectCategory.option(category));
     }
 
     @Then("^The user should see the subcategories$")
