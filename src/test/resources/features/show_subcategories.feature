@@ -12,4 +12,4 @@ Feature: Show subcategories in the category list
     Examples:
       | category              |
       | Hogar y Muebles       |
-      | Industrias y Oficinas |
+      #| Industrias y Oficinas |

@@ -24,9 +24,10 @@ public class SelectCategory implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Click.on(HomePage.CATEGORIES_OPTIONS),
+                //Scroll.to(HomePage.LBL_INMUEBLLES),
                 Click.on(HomePage.CATEGORY_OPTION.of(category)),
                 WaitUntil.the(HomePage.SUBCATEGORIES, WebElementStateMatchers.isPresent()).forNoMoreThan(15).seconds()
-                //Scroll.to()
+
         );
     }
 
