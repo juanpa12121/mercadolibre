@@ -13,6 +13,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -39,7 +40,7 @@ public class CSVUtilities {
         strings = CSVUtilities.readCSV(strings);
         for (int i = 1; i < strings.size(); i++) {
             String[] dataCustomerFromCSV = strings.get(i);
-            listSubcategories.add(dataCustomerFromCSV[0]);
+            listSubcategories.add(dataCustomerFromCSV[1]);
         }
         return listSubcategories;
     }
