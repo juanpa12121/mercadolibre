@@ -8,6 +8,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ValidateShowSubcategories implements Question<Boolean> {
@@ -26,6 +27,7 @@ public class ValidateShowSubcategories implements Question<Boolean> {
 
         //En esta lista se guardan los strings del csv, retornados por la utilidad CSVUtilities
         textListSubcategoriesFromCsv = CSVUtilities.getListSubcategories();
+        textListSubcategoriesFromCsv.removeAll(Arrays.asList("", null));
 
         System.out.println("From page");
         for (String string : textListSubcategoriesFromPage) {
