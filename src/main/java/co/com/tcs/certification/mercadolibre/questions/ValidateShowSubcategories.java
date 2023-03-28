@@ -2,12 +2,14 @@ package co.com.tcs.certification.mercadolibre.questions;
 
 import co.com.tcs.certification.mercadolibre.userinterfaces.HomePage;
 import co.com.tcs.certification.mercadolibre.utils.CSVUtilities;
+import co.com.tcs.certification.mercadolibre.utils.Constants;
 import co.com.tcs.certification.mercadolibre.utils.OperationOnList;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ValidateShowSubcategories implements Question<Boolean> {
@@ -25,7 +27,7 @@ public class ValidateShowSubcategories implements Question<Boolean> {
         textListSubcategoriesFromPage = OperationOnList.getTextListSubcategories(subCategoriesFromPage, textListSubcategoriesFromPage);
 
         //En esta lista se guardan los strings del csv, retornados por la utilidad CSVUtilities
-        textListSubcategoriesFromCsv = CSVUtilities.getListSubcategories();
+        textListSubcategoriesFromCsv = CSVUtilities.getListSubcategories(actor.recall(Constants.NAME_CATEGORY));
 
         System.out.println("From page");
         for (String string : textListSubcategoriesFromPage) {

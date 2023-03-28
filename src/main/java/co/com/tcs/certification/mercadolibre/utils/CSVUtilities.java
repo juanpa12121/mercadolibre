@@ -13,6 +13,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -20,27 +21,44 @@ public class CSVUtilities {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CSVUtilities.class);
 
-    public static List<String[]> readCSV(List<String[]> strings) {
+    public static List<String[]> readCSV(List<String[]> listVector) {
         CSVParser csvParser = new CSVParserBuilder().withSeparator(';').build();
         try (CSVReader reader = new CSVReaderBuilder(
                 new FileReader("src/test/resources/files/subcategorias.csv"))
                 .withCSVParser(csvParser)
                 .build()) {
-            strings = reader.readAll();
+            listVector = reader.readAll();
         } catch (IOException | CsvException e) {
-            LOGGER.error("Error al leer csv", e);
+            LOGGER.error(Constants.MESSAGE_ERROR_READ_CSV, e);
         }
-        return strings;
+        return listVector;
     }
 
-    public static List<String> getListSubcategories() {
-        List<String[]> strings = new ArrayList<>();
+    public static List<String> getListSubcategories(String nameCategory) {
+        int indexCategory = 0;
+        List<String[]> listVector = new ArrayList<>();
         List<String> listSubcategories = new ArrayList<>();
-        strings = CSVUtilities.readCSV(strings);
-        for (int i = 1; i < strings.size(); i++) {
-            String[] dataCustomerFromCSV = strings.get(i);
-            listSubcategories.add(dataCustomerFromCSV[0]);
+        listVector = CSVUtilities.readCSV(listVector);
+        indexCategory = getIndexCategory(listVector.get(0), indexCategory, nameCategory);
+        for (int i = 1; i < listVector.size(); i++) {
+            String[] dataCustomerFromCSV = listVector.get(i);
+            listSubcategories.add(dataCustomerFromCSV[indexCategory]);
         }
+        listSubcategories.removeAll(Arrays.asList("", null));
         return listSubcategories;
+    }
+
+    //Metodo para retornar el indice de la categoria (columna) que necesitamos
+    //Se buscara dentro de listVector.get(0) la categoria que se necesite
+    //vector: Para buscar, int: Para retornarlo, String: Con el nombre de la categoria que le paso desde el feature
+    public static int getIndexCategory(String[] vector, int indexCategory, String nameCategory) {
+        indexCategory = 0;
+        for (int i = 0; i < vector.length; i++) {
+            if (vector[i].equals(nameCategory)) {
+                indexCategory = i;
+                i = vector.length; //Para que deje de recorrer
+            }
+        }
+        return indexCategory;
     }
 }
