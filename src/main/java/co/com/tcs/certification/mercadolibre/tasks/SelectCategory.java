@@ -24,10 +24,7 @@ public class SelectCategory implements Task {
         actor.attemptsTo(
                 Click.on(HomePage.BTN_COOKIES),
                 Click.on(HomePage.CATEGORIES_OPTIONS),
-                Click.on(HomePage.CATEGORY_OPTION.of(category)),
-                //Mouse hover
-                MoveMouse.to(HomePage.CATEGORIES_OPTIONS),
-                MoveMouse.to(HomePage.NAV_LOGO)
+                Click.on(HomePage.CATEGORY_OPTION.of(category))
         );
         //Recordar categoria para enviarla a CSVUtilities
         actor.remember(NAME_CATEGORY, category);
