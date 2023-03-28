@@ -13,3 +13,4 @@ Feature: Show subcategories in the category list
       | category              |
       | Hogar y Muebles       |
       | Industrias y Oficinas |
+      | Inmuebles             |

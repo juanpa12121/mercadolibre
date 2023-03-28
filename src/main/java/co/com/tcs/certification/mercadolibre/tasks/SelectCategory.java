@@ -9,7 +9,7 @@ import net.serenitybdd.screenplay.actions.*;
 import net.serenitybdd.screenplay.matchers.WebElementStateMatchers;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-
+import static co.com.tcs.certification.mercadolibre.utils.Constants.NAME_CATEGORY;
 
 
 public class SelectCategory implements Task {
@@ -22,14 +22,15 @@ public class SelectCategory implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
+                Click.on(HomePage.BTN_COOKIES),
                 Click.on(HomePage.CATEGORIES_OPTIONS),
-                //Scroll.to(HomePage.LBL_INMUEBLLES),
                 Click.on(HomePage.CATEGORY_OPTION.of(category)),
-                WaitUntil.the(HomePage.SUBCATEGORIES, WebElementStateMatchers.isPresent()).forNoMoreThan(15).seconds(),
                 //Mouse hover
-                MoveMouse.to(HomePage.CATEGORIES_OPTIONS)
-
+                MoveMouse.to(HomePage.CATEGORIES_OPTIONS),
+                MoveMouse.to(HomePage.NAV_LOGO)
         );
+        //Recordar categoria para enviarla a CSVUtilities
+        actor.remember(NAME_CATEGORY, category);
     }
 
     public static SelectCategory option(String category) {
