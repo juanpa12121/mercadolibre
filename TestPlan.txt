@@ -1,0 +1,16 @@
+Plan de Pruebas MercadoLibre
+
+URL: https://www.mercadolibre.com.co/
+
+Contexto general:
+Con la HU se espera validar exitosamente que se muestren las subcategorias correspondientes a determinadas categorías indicadas en la historia de usuario
+
+Alcance:
+* Validar que se muestren las subcategorias en la página principal de MercadoLibre al dar click en una categoria en específico.
+
+Fuera del alcance:
+Validaciones de compras, de inicio de sesión, de caracteristicas de productos, y de cualquier otro contenido no contemplado en el alcance.
+
+
+Estategia:
+Para las pruebas definidas en el alcance, se usarán pruebas funcionales End to End (automatizadas), de forma que se pueda abarcar todo el funcionamiento del sistema. Usaré herramientas como Selenium, Cucumber, lenguaje Java, lenguaje Gherkin y el patrón de diseño Screenplay.
